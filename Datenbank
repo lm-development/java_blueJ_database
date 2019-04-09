@@ -1,0 +1,35 @@
+public class Datenbank {
+    int size;
+    public int[] database;
+public Datenbank( int pSize){
+    database= new int[pSize];
+   size = pSize;
+
+     for(int i=0; i<pSize; i++) 
+     database[i]= (int)(Math.random()*1000);
+    }
+    
+    
+    public boolean searchdatabase(int pNumber) {
+    for(int i=0; i<size; i++){if (database[i]==pNumber) 
+        {   System.out.println('\u000C');
+            System.out.println("An der Stelle "+i+ " ist der Wert " +pNumber+ " vorhanden.");
+            return true; 
+            
+        }
+    }  
+    return false;
+
+}   
+public boolean searchdatabsepartially(int pAnfang, int pEnde, int pNumber){
+    for(int i=pAnfang; i<pEnde; i++){if (database[i]==pNumber) 
+        {   System.out.println('\u000C');
+            System.out.println("An der Stelle "+i+ " ist der Wert " +pNumber+ " vorhanden.");
+            return true; 
+            
+        }
+    }  
+    return false;
+
+}
+} 
