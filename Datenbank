@@ -1,6 +1,7 @@
 public class Datenbank {
     int size;
     public int[] database;
+    int r;
 public Datenbank( int pSize){
     database= new int[pSize];
    size = pSize;
@@ -32,4 +33,38 @@ public boolean searchdatabsepartially(int pAnfang, int pEnde, int pNumber){
     return false;
 
 }
+public void advanceddatabasesearch( int pNumber) {
+ for(int i=0; i<size; i++){if (database[i]==pNumber) 
+     
+        {  r++;
+              
+        }
+       
+    } 
+  
+ if(r==0) {System.out.println("Leider war die Suche erfolglos. Die Zahl "+pNumber+ " ist in der Datenbank nicht vorhanden.");}
+
+ if(r>0) {System.out.println("Die Suche war erfolfreich. Die Zahl "+pNumber+ " ist in der Datenbank " +r+ "-Mal vorhanden.");}
+}
 } 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
