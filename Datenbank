@@ -1,20 +1,29 @@
 public class Datenbank {
-    int size;
-    public int[] database;
-    int r;
-public Datenbank( int pSize){
+int size;
+public int[] database;
+int r;
+    
+    
+public Datenbank( int pSize){ 
     database= new int[pSize];
-   size = pSize;
+    size = pSize;
 
      for(int i=0; i<pSize; i++) 
-     database[i]= (int)(Math.random()*1000);
+        database[i]= (int)(Math.random()*1000);
+        
     }
+
+       
+   
     
+    public boolean searchdatabase(int pNumber) {     //sucht die ganze datenbank durch, bis die zahl gefunden wurde
     
-    public boolean searchdatabase(int pNumber) {
     for(int i=0; i<size; i++){if (database[i]==pNumber) 
-        {   System.out.println('\u000C');
-            System.out.println("An der Stelle "+i+ " ist der Wert " +pNumber+ " vorhanden.");
+        
+        {  
+       System.out.println('\u000C'); 
+       System.out.println("***An der Stelle "+(i-1)+ " ist der Wert " +pNumber+ " vorhanden.***");
+           
             return true; 
             
         }
@@ -22,10 +31,13 @@ public Datenbank( int pSize){
     return false;
 
 }   
-public boolean searchdatabsepartially(int pAnfang, int pEnde, int pNumber){
+
+
+public boolean searchdatabsepartially(int pAnfang, int pEnde, int pNumber){   //sucht nur einen teil der datenbank durch und stoppt, wenn die zahl gefunden wurde
     for(int i=pAnfang; i<pEnde; i++){if (database[i]==pNumber) 
         {   System.out.println('\u000C');
-            System.out.println("An der Stelle "+i+ " ist der Wert " +pNumber+ " vorhanden.");
+            
+            System.out.println("***An der Stelle "+(i-1)+ " ist der Wert " +pNumber+ " vorhanden.***");
             return true; 
             
         }
@@ -33,7 +45,30 @@ public boolean searchdatabsepartially(int pAnfang, int pEnde, int pNumber){
     return false;
 
 }
-public void advanceddatabasesearch( int pNumber) {
+
+
+void sort() //(Selection Sort)     
+    { 
+        int n = database.length;
+  
+       
+        for (int i = 0; i < n-1; i++) 
+        { 
+            
+            int min_idx = i; 
+            for (int j = i+1; j < n; j++) 
+                if (database[j] < database[min_idx]) 
+                    min_idx = j; 
+  
+           
+            int temp = database[min_idx]; 
+            database[min_idx] = database[i]; 
+            database[i] = temp; 
+        }
+    }
+      
+    
+public void advanceddatabasesearch( int pNumber) {   //zählt, wie oft die zahl in der datenbank vorkommt
  for(int i=0; i<size; i++){if (database[i]==pNumber) 
      
         {  r++;
@@ -41,26 +76,27 @@ public void advanceddatabasesearch( int pNumber) {
         }
        
     } 
-  
- if(r==0) {System.out.println("Leider war die Suche erfolglos. Die Zahl "+pNumber+ " ist in der Datenbank nicht vorhanden.");}
+  System.out.print('\u000C');
+ if(r==0) {System.out.println("***Leider war die Suche erfolglos. Die Zahl "+pNumber+ " ist in der Datenbank nicht vorhanden.***");}
 
- if(r>0) {System.out.println("Die Suche war erfolfreich. Die Zahl "+pNumber+ " ist in der Datenbank " +r+ "-Mal vorhanden.");}
+ if(r>0) {System.out.println("***Die Suche war erfolfreich. Die Zahl "+pNumber+ " ist in der Datenbank " +r+ "-Mal vorhanden.***");}
+}
+
+
+public void advanceddatabasesearchpartially( int pNumber, int pAnfang, int pEnde) {    //zählt, wie oft die Zahl in einen Teil der Datanbank vorkommt
+ for(int i=pAnfang; i<pEnde; i++){if (database[i]==pNumber) 
+     
+        {  r++;
+              
+        }
+       
+    } 
+  System.out.print('\u000C');
+ if(r==0) {System.out.println("***Leider war die Suche erfolglos. Die Zahl "+pNumber+ " ist in diesem Teil der Datenbank nicht vorhanden.***");}
+
+ if(r>0) {System.out.println("***Die Suche war erfolfreich. Die Zahl "+pNumber+ " ist in diesem Teil der Datenbank " +r+ "-Mal vorhanden.***");}
 }
 } 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
