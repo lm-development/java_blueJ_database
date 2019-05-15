@@ -2,9 +2,18 @@ public class Datenbank {
 int size;
 public int[] database;
 int r;
+
+
+
+
+
+
+
+
+
+
     
-    
-public Datenbank( int pSize){ 
+   public Datenbank( int pSize){ 
     database= new int[pSize];
     size = pSize;
 
@@ -14,6 +23,42 @@ public Datenbank( int pSize){
     }
 
        
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+ public void ausgabe(){
+   for(int i=0; i<pSize; i++) {
+   System.out.println(" "+database[i]+" ");
+   }
+
+ 
+ 
+ }      
+       
+       
+       
+       
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
    
     
     public boolean searchdatabase(int pNumber) {     //sucht die ganze datenbank durch, bis die zahl gefunden wurde
@@ -33,6 +78,21 @@ public Datenbank( int pSize){
 }   
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public boolean searchdatabsepartially(int pAnfang, int pEnde, int pNumber){   //sucht nur einen teil der datenbank durch und stoppt, wenn die zahl gefunden wurde
     for(int i=pAnfang; i<pEnde; i++){if (database[i]==pNumber) 
         {   System.out.println('\u000C');
@@ -47,7 +107,14 @@ public boolean searchdatabsepartially(int pAnfang, int pEnde, int pNumber){   //
 }
 
 
-void sort() //(Selection Sort)     
+
+
+
+
+
+
+
+public void selectionSort()    
     { 
         int n = database.length;
   
@@ -55,18 +122,83 @@ void sort() //(Selection Sort)
         for (int i = 0; i < n-1; i++) 
         { 
             
-            int min_idx = i; 
+            
             for (int j = i+1; j < n; j++) 
-                if (database[j] < database[min_idx]) 
-                    min_idx = j; 
+               { if (database[j] < database[i]) {
+                    int temp = database[i];
+                    database[i]= database[j];
+                    temp = database[j];}
+                    
+                    }
+  }
+  }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  void insertionSort() 
+    { 
+        int n = database.length; 
+        for (int i = 1; i < n; i++) { 
+          
+            int j = i - 1; 
   
            
-            int temp = database[min_idx]; 
-            database[min_idx] = database[i]; 
-            database[i] = temp; 
-        }
-    }
+            while (j >= 0 && database[j] > database[i]) { 
+                database[j + 1] = database[j]; 
+                j = j - 1; 
+            } 
+            database[j + 1] = database[i]; 
+        } 
+    } 
       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  public void bubbleSort()
+    {
+        int n = database.length;
+        for (int i = 0; i < n-1; i++)
+            for (int j = 0; j < n-i-1; j++)
+                if (database[j] > database[j+1])
+                {
+                    // tausche
+                    int temp =database[j];
+                 database[j] = database[j+1];
+                   database[j+1] = temp;
+                }
+    }
+    
+    
+    
+    
+    
+    
+    
     
 public void advanceddatabasesearch( int pNumber) {   //zählt, wie oft die zahl in der datenbank vorkommt
  for(int i=0; i<size; i++){if (database[i]==pNumber) 
@@ -81,6 +213,35 @@ public void advanceddatabasesearch( int pNumber) {   //zählt, wie oft die zahl 
 
  if(r>0) {System.out.println("***Die Suche war erfolfreich. Die Zahl "+pNumber+ " ist in der Datenbank " +r+ "-Mal vorhanden.***");}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 public void advanceddatabasesearchpartially( int pNumber, int pAnfang, int pEnde) {    //zählt, wie oft die Zahl in einen Teil der Datanbank vorkommt
