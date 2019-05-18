@@ -34,7 +34,7 @@ int r;
        
        
  public void ausgabe(){
-   for(int i=0; i<pSize; i++) {
+   for(int i=0; i<size; i++) {
    System.out.println(" "+database[i]+" ");
    }
 
