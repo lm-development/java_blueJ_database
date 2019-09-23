@@ -1,6 +1,6 @@
-//@author: github.com/lm-development
-
-
+// @author: LM, github.com/lm-development
+// updated on September 23, 2019
+// a program to show to way sorting algorythms work
 public class Datenbank {  
 int size;
 public int[] database;       //database ist ein array
@@ -12,7 +12,8 @@ int r;       // mit int r wird gemessen, wie oft eine zahl in einem array vorkom
 
 
 public Datenbank( int pSize) 
-   {                                      //Datenbank wird mit einem array im Konstruktor erstellt
+ //Datenbank wird mit einem array im Konstruktor erstellt
+   {                                      
     database= new int[pSize];
     size = pSize;
         for(int i=0; i<pSize; i++) 
