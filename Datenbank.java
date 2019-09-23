@@ -60,11 +60,12 @@ public void selectionSort()    //sorts the array using selection sort. After tha
                        temp = database[j];}
                       }
                 }
-        }
+        
             
    
        long timeEnd = System.currentTimeMillis(); 
-       System.out.println("Verlaufszeit der Schleife: " + (timeEnd - timeStart) + " Millisek."); 
+       long runtime =timeEnd - timeStart;
+       System.out.println("Laufzeit der Schleife: " + runtime + " Millisek."); 
 }
 
   
@@ -127,7 +128,9 @@ public void selectionSort()    //sorts the array using selection sort. After tha
    //sucht die ganze datenbank durch, bis die zahl gefunden wurde
    {
     
-      for(int i=0; i<size; i++){if (database[i]==pNumber) 
+      for(int i=0; i<size; i++)
+      {
+          if (database[i]==pNumber) 
           {  
              System.out.println('\u000C'); 
              System.out.println("***An der Stelle "+(i-1)+ " ist der Wert " +pNumber+ " vorhanden.***");
@@ -144,7 +147,9 @@ public void selectionSort()    //sorts the array using selection sort. After tha
    public boolean searchdatabsepartially(int pAnfang, int pEnde, int pNumber)
    //sucht nur einen teil der datenbank durch und stoppt, wenn die zahl gefunden wurde
    {   
-      for(int i=pAnfang; i<pEnde; i++){if (database[i]==pNumber) 
+      for(int i=pAnfang; i<pEnde; i++)
+        { 
+          if (database[i]==pNumber) 
          {   
            System.out.println('\u000C');
            System.out.println("***An der Stelle "+(i-1)+ " ist der Wert " +pNumber+ " vorhanden.***");
@@ -152,20 +157,25 @@ public void selectionSort()    //sorts the array using selection sort. After tha
             
          }
      
-     return false;
+    
 
-   }    
+   }  
+   return falseM
+}
 
        
 
 public void advanceddatabasesearch( int pNumber) 
 //zählt, wie oft die zahl in der datenbank vorkomm
 {  
-   for(int i=0; i<size; i++){if (database[i]==pNumber) 
+   for(int i=0; i<size; i++)
+     {
+         if (database[i]==pNumber) 
      
         {  
           r++;
         }
+    }
        
   
    System.out.print('\u000C');
@@ -180,14 +190,17 @@ public void advanceddatabasesearch( int pNumber)
   }
 
 
+
     
 public void advanceddatabasesearchpartially( int pNumber, int pAnfang, int pEnde) 
   //zählt, wie oft die Zahl in einen Teil der Datanbank vorkommt
   {   
-    for(int i=pAnfang; i<pEnde; i++){if (database[i]==pNumber) 
+    for(int i=pAnfang; i<pEnde; i++)
+      {
+        if (database[i]==pNumber) 
         {  
         r++;
-        }
+        }}
        
    
    System.out.print('\u000C');
@@ -200,3 +213,4 @@ public void advanceddatabasesearchpartially( int pNumber, int pAnfang, int pEnde
           System.out.println("***Die Suche war erfolfreich. Die Zahl "+pNumber+ " ist in diesem Teil der Datenbank " +r+ "-Mal vorhanden.***");
       }
    } 
+} 
