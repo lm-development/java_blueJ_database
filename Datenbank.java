@@ -54,12 +54,15 @@ public void selectionSort()    //sorts the array using selection sort. After tha
             for (int j = i+1; j < n; j++) 
                {
                   if (database[j] < database[i]) 
-                     {
+                      {
                        int temp = database[i];
                        database[i]= database[j];
                        temp = database[j];}
-                     }
-   }
+                      }
+                }
+        }
+            
+   
        long timeEnd = System.currentTimeMillis(); 
        System.out.println("Verlaufszeit der Schleife: " + (timeEnd - timeStart) + " Millisek."); 
 }
