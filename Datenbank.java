@@ -42,7 +42,7 @@ public Datenbank( int pSize)
     
     
  
-public void selectionSort()    //sorts the array using selection sort. After that, the total runtime of this function is displayed
+public void selectionSort()    //sorts the array using selection sort. After that, the total runtime of this method is displayed
 { 
         int n = database.length;
         long timeStart = System.currentTimeMillis(); 
@@ -63,62 +63,79 @@ public void selectionSort()    //sorts the array using selection sort. After tha
        System.out.println("Verlaufszeit der Schleife: " + (timeEnd - timeStart) + " Millisek."); 
 }
 
+  
+    
+    
    
-   
- public void  insertionSort() //sorts the array using insertion sort. After that, the total runtime of this function is displayed
+ public void  insertionSort() 
+ //sorts the array using insertion sort. After that, the total runtime of this method is displayed
   { 
         int n = database.length; 
         long timeStart = System.currentTimeMillis();
-        for (int i = 1; i < n; i++) { 
-          
+     
+        for (int i = 1; i < n; i++) 
+          { 
             int j = i - 1; 
-  
-           
-            while (j >= 0 && database[j] > database[i]) { 
-                database[j + 1] = database[j]; 
-                j = j - 1; 
-            }   
-            database[j + 1] = database[i]; 
-        }
-         long timeEnd = System.currentTimeMillis(); 
+              while (j >= 0 && database[j] > database[i]) 
+              { 
+                 database[j + 1] = database[j]; 
+                 j = j - 1; 
+               }   
+             database[j + 1] = database[i]; 
+          }
+     
+        long timeEnd = System.currentTimeMillis(); 
         System.out.println("Verlaufszeit der Schleife: " + (timeEnd - timeStart) + " Millisek."); 
     } 
       
   
-  public void bubbleSort() //sorts the array using bubble sort. After that, the total runtime of this function is displayed
-    {
-        int n = database.length;
-         long timeStart = System.currentTimeMillis();
+    
+  public void bubbleSort() 
+  //sorts the array using bubble sort. After that, the total runtime of this method is displayed
+  {
+       int n = database.length;
+       long timeStart = System.currentTimeMillis();
         for (int i = 0; i < n-1; i++)
+         {
             for (int j = 0; j < n-i-1; j++)
+            {
                 if (database[j] > database[j+1])
                 {
                     // tausche
                     int temp =database[j];
-                 database[j] = database[j+1];
+                   database[j] = database[j+1];
                    database[j+1] = temp;
                 }
-                 long timeEnd = System.currentTimeMillis(); 
-        System.out.println("Verlaufszeit der Schleife: " + (timeEnd - timeStart) + " Millisek."); 
-    }
-    
-    
-    public boolean searchdatabase(int pNumber) {     //sucht die ganze datenbank durch, bis die zahl gefunden wurde
-    
-    for(int i=0; i<size; i++){if (database[i]==pNumber) 
-        
-        {  
-       System.out.println('\u000C'); 
-       System.out.println("***An der Stelle "+(i-1)+ " ist der Wert " +pNumber+ " vorhanden.***");
-           
-            return true; 
-            
+            }
         }
+      
+        long timeEnd = System.currentTimeMillis(); 
+        System.out.println("Verlaufszeit der Schleife: " + (timeEnd - timeStart) + " Millisek."); 
+  }
+    
+    
+    
+    
+    
+    
+    
+   public boolean searchdatabase(int pNumber)
+   //sucht die ganze datenbank durch, bis die zahl gefunden wurde
+   {
+    
+      for(int i=0; i<size; i++){if (database[i]==pNumber) 
+          {  
+             System.out.println('\u000C'); 
+             System.out.println("***An der Stelle "+(i-1)+ " ist der Wert " +pNumber+ " vorhanden.***");
+             return true; 
+            
+          }
     }  
     return false;
 
 }      
 
+    
 
    public boolean searchdatabsepartially(int pAnfang, int pEnde, int pNumber){   //sucht nur einen teil der datenbank durch und stoppt, wenn die zahl gefunden wurde
     for(int i=pAnfang; i<pEnde; i++){if (database[i]==pNumber) 
