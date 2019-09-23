@@ -1,55 +1,67 @@
+//@author: github.com/lm-development
+
 
 public class Datenbank {  
 int size;
-public int[] database; //database ist ein array
-int r; // mit int r wird gemessen, wie oft eine zahl in einem array vorkommt
+public int[] database;       //database ist ein array
+int r;       // mit int r wird gemessen, wie oft eine zahl in einem array vorkommt
+
+    
+    
+    
 
 
-
-public Datenbank( int pSize){ //Datenbank wird mit einem array im Konstruktor erstellt
+public Datenbank( int pSize) 
+   {                                      //Datenbank wird mit einem array im Konstruktor erstellt
     database= new int[pSize];
     size = pSize;
-
-     for(int i=0; i<pSize; i++) //Weist jeder Stelle im Array eine zufällige Zahl zwischen 1 und 1000 zu
-        database[i]= (int)(Math.random()*1000);
-        
+        for(int i=0; i<pSize; i++) 
+        {
+           //Weist jeder Stelle im Array eine zufällige Zahl zwischen 1 und 1000 zu
+           database[i]= (int)(Math.random()*1000);
+        }
     }
 
-       
- public void ausgabe(){ //Ausgabe aller Werte im Array mittels for Schleife
-     System.out.println('\u000C'); //Dieser Befehl macht die Konsole sauber 
-     System.out.println("######");//Nur zur Abgrenzung
-   for(int i=0; i<size; i++) {
-   System.out.println(" "+database[i]+" ");
+     
     
-   }
-   System.out.println("######");
+    
+    
+    
+    
+ public void ausgabe()
+ {      //Ausgabe aller Wert mittels for Schleife
+        System.out.println('\u000C'); //Dieser Befehl macht die Konsole sauber 
+        System.out.println("######");//Nur zur Abgrenzung
+            for(int i=0; i<size; i++) 
+              {
+                System.out.println(" "+database[i]+" ");
+              }
+        System.out.println("######");
+  }      
 
- 
- 
- }      
- 
+    
+    
  
 public void selectionSort()    //sorts the array using selection sort. After that, the total runtime of this function is displayed
-    { 
+{ 
         int n = database.length;
-  long timeStart = System.currentTimeMillis(); 
+        long timeStart = System.currentTimeMillis(); 
        
         for (int i = 0; i < n-1; i++) 
         { 
             
-            
             for (int j = i+1; j < n; j++) 
-               { if (database[j] < database[i]) {
-                    int temp = database[i];
-                    database[i]= database[j];
-                    temp = database[j];}
-                    
-                    }
-  }
-   long timeEnd = System.currentTimeMillis(); 
-        System.out.println("Verlaufszeit der Schleife: " + (timeEnd - timeStart) + " Millisek."); 
-  }
+               {
+                  if (database[j] < database[i]) 
+                     {
+                       int temp = database[i];
+                       database[i]= database[j];
+                       temp = database[j];}
+                     }
+   }
+       long timeEnd = System.currentTimeMillis(); 
+       System.out.println("Verlaufszeit der Schleife: " + (timeEnd - timeStart) + " Millisek."); 
+}
 
    
    
