@@ -1,6 +1,6 @@
 // @author: LM, github.com/lm-development
 // updated on September 23, 2019
-// a program to show to way sorting algorythms work
+// a program to show the way sorting algorythms work
 public class Datenbank {  
 int size;
 public int[] database;       //database ist ein array
